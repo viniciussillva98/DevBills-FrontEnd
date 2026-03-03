@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
-import { Authprovider } from "./AuthContext";
+import { AuthProvider } from "./AuthContext";
 
 const AppProvider = ({ children }: { children: ReactNode }) => {
-  return <Authprovider>{children}</Authprovider>;
+  return <AuthProvider>{children}</AuthProvider>;
 };
 
 export default AppProvider;

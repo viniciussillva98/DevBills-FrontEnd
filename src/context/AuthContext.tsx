@@ -11,7 +11,7 @@ interface AuthContextProps {
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
-export const Authprovider = ({ children }: { children: ReactNode }) => {
+export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [authState, setAuthState] = useState<AuthState>({
     user: null,
     error: null,
@@ -23,6 +23,7 @@ export const Authprovider = ({ children }: { children: ReactNode }) => {
       //MONITORA AUTENTICAÇÃO
       firebaseAuth,
       (user) => {
+        console.log(user)
         if (user) {
           //SE TIVER USUÁRIO
           setAuthState({
