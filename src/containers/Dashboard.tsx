@@ -36,8 +36,13 @@ const Dashboard = () => {
 
   useEffect(() => {
     async function getAllTransactionsSummary() {
-      const data = await getTransactionSummary(month, year);
-      setSummary(data);
+      try {
+        const data = await getTransactionSummary(month, year);
+        setSummary(data ?? initialSummary);
+      } catch (error) {
+        console.error(error);
+        setSummary(initialSummary);
+      }
     }
 
     getAllTransactionsSummary();
